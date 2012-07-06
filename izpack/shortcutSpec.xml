@@ -1,0 +1,41 @@
+<shortcuts>
+  <skipIfNotSupported/>
+  <programGroup defaultName="Grid"
+                location="applications"/>
+  <shortcut
+    name="CLIENT_NAME"
+    target="$INSTALL_PATH\launch\launch.vbs"
+    commandLine=""
+    workingDirectory="$INSTALL_PATH\launch\"
+    description="This starts an instance of the CLIENT_NAME"
+    iconFile="$INSTALL_PATH\resources\icon.ico"
+    iconIndex="0"
+    initialState="normal"
+    programGroup="yes"
+    desktop="yes"
+    applications="yes"
+    startMenu="no"
+    startup="no">
+
+    <createForPack name="libs"/>
+  </shortcut>
+  
+<shortcut
+     name="Uninstall CLIENT_NAME"
+     programGroup="yes"
+     desktop="no"
+     applications="yes"
+     startMenu="no"
+     startup="no"
+     target="$INSTALL_PATH\launch\uninstall.vbs"
+     workingDirectory="$INSTALL_PATH\launch\"
+     commandLine=""
+     initialState="normal"
+     iconFile="$INSTALL_PATH\resources\uninstall.ico"
+     iconIndex="0"
+     description="CLIENT_NAME uninstaller">
+     <createForPack name="libs" />
+   </shortcut>  
+  
+  
+</shortcuts>

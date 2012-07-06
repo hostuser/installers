@@ -1,0 +1,7 @@
+launch.vbs  WINDOWS_START_SCRIPT
+shortcutSpec.xml CLIENT_NAME
+unix_shortcut_spec.xml CLIENT_NAME LINUX_START_SCRIPT
+TargetDirWindow CLIENT_NAME
+TargetDirWindow CLIENT_NAME
+
+install.xml VERSION_TOKEN CLIENT_NAME CLIENT_URL

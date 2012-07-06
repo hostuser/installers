@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<installation version="1.0">
+	<info>
+		<appname>CLIENT_NAME</appname>
+		<appversion>VERSION_TOKEN</appversion>
+		<url>CLIENT_URL</url>
+		<authors>
+			<author name="Markus Binsteiner" email="m.binsteiner@auckland.ac.nz" />
+		</authors>
+		<javaversion>1.6</javaversion>
+		<run-privileged condition="izpack.windowsinstall|izpack.macinstall" />
+	</info>
+	<guiprefs height="400" resizable="no" width="640">
+		<modifier key="useButtonIcons" value="yes" />
+		<modifier key="useLabelIcons" value="no" />
+		<modifier key="labelGap" value="2" />
+		<modifier key="layoutAnchor" value="NORTHWEST" />
+		<modifier key="useHeadingPanel" value="no" />
+		<modifier key="headingImageOnLeft" value="yes" />
+		<modifier key="headingLineCount" value="1" />
+		<modifier key="headingFontSize" value="1.5" />
+		<modifier key="headingBackgroundColor" value="0x00ffffff" />
+		<modifier key="headingPanelCounter" value="progressbar" />
+		<modifier key="headingPanelCounterPos" value="inNavigationPanel" />
+	</guiprefs>
+	<locale>
+		<langpack iso3="eng" />
+	</locale>
+	<resources>
+		<res id="LicencePanel.licence" src="Licence.txt" />
+		<res id="InfoPanel.info" src="Readme.txt" />
+		<!-- <res id="HTMLHelloPanel.welcome" src="welcome.html"/> -->
+		<!-- <res id="HTMLInfoPanel.welcome" src="welcome.html"/> -->
+		<res id="IZPackLogo" src="izpack-logo-medium.png" />
+		<res id="Installer.image" src="clouds.jpg" />
+		<res id="TargetPanel.dir.windows" src="TargetDirWindows.txt" />
+		<res id="TargetPanel.dir.unix" src="TargetDirUnix.txt" />
+
+		<res id="shortcutSpec.xml" src="shortcutSpec.xml" />
+		<res  id="Unix_shortcutSpec.xml" src="unix_shortcut_spec.xml"/>
+	</resources>
+
+	<native type="izpack" name="ShellLink.dll" >
+		<os family="windows" />
+	</native>
+	<native type="izpack" name="ShellLink_x64.dll">
+    	<os family="windows" />
+	</native>
+	
+
+
+	<variables>
+		<variable name="InstallerFrame.logfilePath" value="Default" />
+		<variable name="WELCOME_TEXT" value="CLIENT_NAME" />
+		<variable name="WELCOME_VERSION" value="VERSION_TOKEN" />
+	</variables>
+
+
+	<panels>
+		<!-- <panel classname="CheckedHelloPanel" id="welcome"/> -->
+		<panel classname="CheckedHelloPanel" />
+		<panel classname="TargetPanel" id="install_dir" />
+		<panel classname="PacksPanel" id="sdk_pack_select" />
+		<panel classname="InstallPanel" id="install" />
+		<panel classname="ShortcutPanel" />
+		<panel classname="SimpleFinishPanel" id="finish" />
+	</panels>
+
+	<packs>
+		<pack name="libs" required="yes" preselected="yes">
+			<description>The core libraries.</description>
+			<file src="getdown/getdown-client-1.2.jar" targetdir="$INSTALL_PATH/launch"></file>
+
+			<file src="resources/icon.png" targetdir="$INSTALL_PATH/resources"></file>
+			<file src="resources/icon.ico" targetdir="$INSTALL_PATH/resources"></file>
+			<file src="resources/uninstall.png" targetdir="$INSTALL_PATH/resources"></file>
+			<file src="resources/uninstall.ico" targetdir="$INSTALL_PATH/resources"></file>
+
+			<file src="linux/LINUX_START_SCRIPT" targetdir="$INSTALL_PATH/bin">
+				<os family="linux"/>
+			</file>
+			<executable os="linux" targetfile="$INSTALL_PATH/bin/LINUX_START_SCRIPT"
+				keep="true" stage="never"></executable>
+			<file src="linux/uninstall.sh" targetdir="$INSTALL_PATH/launch">
+				<os family="linux"/>
+			</file>
+			<executable os="linux" targetfile="$INSTALL_PATH/launch/uninstall.sh"
+				keep="true" stage="never"></executable>
+			<file os="linux" src="getdown.txt" targetdir="$INSTALL_PATH/launch"></file>
+
+			<file os="windows" src="windows/WINDOS_START_SCRIPT" targetdir="$INSTALL_PATH/launch"></file>
+			<executable os="windows" targetfile="$INSTALL_PATH/launch/WINDOWS_START_SCRIPT"
+				keep="true" stage="never"></executable>
+			<file os="windows" src="windows/launch.vbs" targetdir="$INSTALL_PATH/launch"></file>
+			<executable os="windows" targetfile="$INSTALL_PATH/launch/launch.vbs"
+				keep="true" stage="never"></executable>
+			<file os="windows" src="windows/uninstall.vbs" targetdir="$INSTALL_PATH/launch"></file>
+			<executable os="windows" targetfile="$INSTALL_PATH/launch/uninstall.vbs"
+				keep="true" stage="never"></executable>
+			<file os="windows" src="windows/uninstall.bat" targetdir="$INSTALL_PATH/launch"></file>
+			<executable os="windows" targetfile="$INSTALL_PATH/launch/uninstall.bat"
+				keep="true" stage="never"></executable>
+			<file os="windows" src="getdown/getdown.txt"
+				targetdir="${ENV[APPDATA]}\Grid\CLIENT_NAME"></file>
+
+		</pack>
+	</packs>
+</installation>
