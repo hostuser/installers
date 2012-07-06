@@ -33,12 +33,13 @@
 			<artifactId>izpack-standalone-compiler</artifactId>
 			<version>4.3.1</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
 
 		<defaultGoal>package</defaultGoal>
-		<finalName>${project.artifactId}</finalName>
+		<finalName>${client}</finalName>
 
 		<pluginManagement>
 			<plugins>
@@ -118,11 +119,11 @@
 						<goals>
 							<goal>replace</goal>
 						</goals>
-						<outputDir>${staging.dir}/${client}</outputDir>
 					</execution>
 				</executions>
 
 				<configuration>
+					<outputDir>${staging.dir}/${client}</outputDir>
 					<includes>
 						<include>install.xml</include>
 						<include>izpack/**</include>
@@ -139,7 +140,7 @@
 						</replacement>
 						<replacement>
 							<token>CLIENT_NAME</token>
-							<vlaue>${client.name}</vlaue>
+							<value>${client.name}</value>
 						</replacement>
 						<replacement>
 							<token>LINUX_START_SCRIPT</token>
@@ -230,135 +231,6 @@
 
 		</plugins>
 	</build>
-
-	<goals>
-		<goal>copy-resources</goal>
-	</goals>
-	<configuration>
-		<outputDirectory>${project.build.directory}</outputDirectory>
-
-		<!-- recursive copy of all resource under src/main/izpack. this is the 
-			stuff to install as well as install.xml and panel data and such -->
-		<resources>
-			<resource>
-				<directory>${basedir}</directory>
-				<includes>
-					<include>install.xml</include>
-				</includes>
-				<filtering>false</filtering>
-			</resource>
-
-		</resources>
-	</configuration>
-</execution>
-
-</executions>
-</plugin>
-
-	<!-- replace version in file -->
-	<plugin>
-		<groupId>com.google.code.maven-replacer-plugin</groupId>
-		<artifactId>replacer</artifactId>
-		<version>1.5.0</version>
-		<executions>
-			<execution>
-				<id>set-version</id>
-				<phase>prepare-package</phase>
-				<goals>
-					<goal>replace</goal>
-				</goals>
-			</execution>
-		</executions>
-
-		<configuration>
-			<file>target/install.xml</file>
-			<replacements>
-				<replacement>
-					<token>VERSION_TOKEN</token>
-					<value>${project.version}</value>
-				</replacement>
-			</replacements>
-		</configuration>
-
-	</plugin>
-
-	<plugin>
-		<artifactId>maven-dependency-plugin</artifactId>
-		<executions>
-			<execution>
-				<!-- copy product jars to izpack staging lib -->
-				<id>copy-product-dependencies</id>
-				<phase>prepare-package</phase>
-				<goals>
-					<goal>copy-dependencies</goal>
-				</goals>
-				<configuration>
-					<outputDirectory>${staging.dir}/lib</outputDirectory>
-					<excludeTransitive>false</excludeTransitive>
-					<stripVersion>true</stripVersion>
-					<overWriteReleases>true</overWriteReleases>
-					<overWriteSnapshots>true</overWriteSnapshots>
-					<overWriteIfNewer>true</overWriteIfNewer>
-					<excludeScope>system</excludeScope> <!-- this excludes tools.jar, e.g. -->
-
-					<excludeArtifactIds>izpack-panels</excludeArtifactIds>
-					<excludeGroupIds>org.codehaus.izpack</excludeGroupIds>
-				</configuration>
-			</execution>
-			<execution>
-				<!-- copy izpack custom (custom panels, etc.) jars to izpack staging 
-					custom -->
-				<id>copy-izpack-dependencies</id>
-				<phase>prepare-package</phase>
-				<goals>
-					<goal>copy-dependencies</goal>
-				</goals>
-				<configuration>
-					<outputDirectory>${staging.dir}/custom</outputDirectory>
-					<excludeTransitive>false</excludeTransitive>
-					<stripVersion>true</stripVersion>
-					<overWriteReleases>true</overWriteReleases>
-					<overWriteSnapshots>true</overWriteSnapshots>
-					<overWriteIfNewer>true</overWriteIfNewer>
-					<!-- IMPORTANT: this causes *only* our custom panels to be copied -->
-					<includeArtifactIds>izpack-panels</includeArtifactIds>
-				</configuration>
-			</execution>
-		</executions>
-	</plugin>
-
-
-	<plugin>
-		<groupId>org.codehaus.izpack</groupId>
-		<artifactId>izpack-maven-plugin</artifactId>
-		<version>1.0-alpha-5</version>
-		<executions>
-			<execution>
-				<phase>package</phase>
-				<goals>
-					<goal>izpack</goal>
-				</goals>
-				<configuration>
-					<izpackBasedir>${staging.dir}</izpackBasedir>
-					<descriptor>${project.build.directory}/install.xml</descriptor>
-					<installerFile>${project.build.directory}/grisu-template-installer.jar</installerFile>
-				</configuration>
-			</execution>
-		</executions>
-		<dependencies>
-			<dependency>
-				<groupId>org.codehaus.izpack</groupId>
-				<artifactId>izpack-standalone-compiler</artifactId>
-				<version>4.3.1</version>
-			</dependency>
-		</dependencies>
-	</plugin>
-
-
-
-</plugins>
-</build>
-
 
 
 	<properties>
