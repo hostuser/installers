@@ -107,6 +107,64 @@
 
 		<plugins>
 
+			<!-- copy all resources to the staging directory. -->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+
+					<execution>
+						<id>copy-client-specific-resources</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${staging.dir}/${client}</outputDirectory>
+
+							<!-- recursive copy of all resource under src/main/izpack. this is 
+								the stuff to install as well as install.xml and panel data and such -->
+							<resources>
+								<resource>
+									<directory>${client}</directory>
+									<includes>
+										<include>**/*</include>
+									</includes>
+									<filtering>false</filtering>
+								</resource>
+
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-binary-resources-izpack</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${staging.dir}/${client}/izpack</outputDirectory>
+
+							<!-- recursive copy of all resource under src/main/izpack. this is 
+								the stuff to install as well as install.xml and panel data and such -->
+							<resources>
+								<resource>
+									<directory>izpack</directory>
+									<includes>
+										<include>**/*.jar</include>
+										<include>**/*.png</include>
+										<include>**/*.ico</include>
+									</includes>
+									<filtering>false</filtering>
+								</resource>
+
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
 				<groupId>com.google.code.maven-replacer-plugin</groupId>
 				<artifactId>replacer</artifactId>
@@ -121,28 +179,6 @@
 						<configuration>
 							<file>install.xml</file>
 							<outputFile>target/${client}.install.xml</outputFile>
-							<replacements>
-								<replacement>
-									<token>VERSION_TOKEN</token>
-									<value>${project.version}</value>
-								</replacement>
-								<replacement>
-									<token>WINDOWS_START_SCRIPT</token>
-									<value>${windows.start.script}</value>
-								</replacement>
-								<replacement>
-									<token>CLIENT_NAME</token>
-									<value>${client.name}</value>
-								</replacement>
-								<replacement>
-									<token>LINUX_START_SCRIPT</token>
-									<value>${linux.start.script}</value>
-								</replacement>
-								<replacement>
-									<token>CLIENT_URL</token>
-									<value>${client.url}</value>
-								</replacement>
-							</replacements>
 						</configuration>
 					</execution>
 					<execution>
@@ -156,103 +192,74 @@
 							<includes>
 								<include>izpack/**</include>
 							</includes>
-							<replacements>
-								<replacement>
-									<token>VERSION_TOKEN</token>
-									<value>${project.version}</value>
-								</replacement>
-								<replacement>
-									<token>WINDOWS_START_SCRIPT</token>
-									<value>${windows.start.script}</value>
-								</replacement>
-								<replacement>
-									<token>CLIENT_NAME</token>
-									<value>${client.name}</value>
-								</replacement>
-								<replacement>
-									<token>LINUX_START_SCRIPT</token>
-									<value>${linux.start.script}</value>
-								</replacement>
-								<replacement>
-									<token>CLIENT_URL</token>
-									<value>${client.url}</value>
-								</replacement>
-							</replacements>
+
 						</configuration>
 					</execution>
 				</executions>
+				<configuration>
+					<excludes>
+						<exclude>**/*.jar</exclude>
+						<exclude>**/*.png</exclude>
+						<exclude>**/*.ico</exclude>
+					</excludes>
+					<replacements>
+						<replacement>
+							<token>CLIENT_ID</token>
+							<value>${client}</value>
+						</replacement>
+						<replacement>
+							<token>VERSION_TOKEN</token>
+							<value>${project.version}</value>
+						</replacement>
+						<replacement>
+							<token>WINDOWS_START_SCRIPT</token>
+							<value>${windows.start.script}</value>
+						</replacement>
+						<replacement>
+							<token>CLIENT_NAME</token>
+							<value>${client.name}</value>
+						</replacement>
+						<replacement>
+							<token>LINUX_START_SCRIPT</token>
+							<value>${linux.start.script}</value>
+						</replacement>
+						<replacement>
+							<token>CLIENT_URL</token>
+							<value>${client.url}</value>
+						</replacement>
+					</replacements>
+				</configuration>
 
 			</plugin>
 
-			<!-- <plugin> -->
-			<!-- <artifactId>maven-dependency-plugin</artifactId> -->
-			<!-- <executions> -->
-			<!-- <execution> -->
-			<!-- copy product jars to izpack staging lib -->
-			<!-- <id>copy-product-dependencies</id> -->
-			<!-- <phase>prepare-package</phase> -->
-			<!-- <goals> -->
-			<!-- <goal>copy-dependencies</goal> -->
-			<!-- </goals> -->
-			<!-- <configuration> -->
-			<!-- <outputDirectory>${staging.dir}/lib</outputDirectory> -->
-			<!-- <excludeTransitive>false</excludeTransitive> -->
-			<!-- <stripVersion>true</stripVersion> -->
-			<!-- <overWriteReleases>true</overWriteReleases> -->
-			<!-- <overWriteSnapshots>true</overWriteSnapshots> -->
-			<!-- <overWriteIfNewer>true</overWriteIfNewer> -->
-			<!-- <excludeScope>system</excludeScope> this excludes tools.jar, e.g. -->
-
-			<!-- <excludeArtifactIds>izpack-panels</excludeArtifactIds> -->
-			<!-- <excludeGroupIds>org.codehaus.izpack</excludeGroupIds> -->
-			<!-- </configuration> -->
-			<!-- </execution> -->
-			<!-- <execution> -->
-			<!-- <id>copy-izpack-dependencies</id> -->
-			<!-- <phase>prepare-package</phase> -->
-			<!-- <goals> -->
-			<!-- <goal>copy-dependencies</goal> -->
-			<!-- </goals> -->
-			<!-- <configuration> -->
-			<!-- <outputDirectory>${staging.dir}/custom</outputDirectory> -->
-			<!-- <excludeTransitive>false</excludeTransitive> -->
-			<!-- <stripVersion>true</stripVersion> -->
-			<!-- <overWriteReleases>true</overWriteReleases> -->
-			<!-- <overWriteSnapshots>true</overWriteSnapshots> -->
-			<!-- <overWriteIfNewer>true</overWriteIfNewer> -->
-			<!-- IMPORTANT: this causes *only* our custom panels to be copied -->
-			<!-- <includeArtifactIds>izpack-panels</includeArtifactIds> -->
-			<!-- </configuration> -->
-			<!-- </execution> -->
-			<!-- </executions> -->
-			<!-- </plugin> -->
 
 
-			<!-- <plugin> -->
-			<!-- <groupId>org.codehaus.izpack</groupId> -->
-			<!-- <artifactId>izpack-maven-plugin</artifactId> -->
-			<!-- <version>1.0-alpha-5</version> -->
-			<!-- <executions> -->
-			<!-- <execution> -->
-			<!-- <phase>package</phase> -->
-			<!-- <goals> -->
-			<!-- <goal>izpack</goal> -->
-			<!-- </goals> -->
-			<!-- <configuration> -->
-			<!-- <izpackBasedir>${staging.dir}/${client}</izpackBasedir> -->
-			<!-- <descriptor>${staging.dir}/${client}/install.xml</descriptor> -->
-			<!-- <installerFile>${project.build.directory}/grisu-template-installer.jar</installerFile> -->
-			<!-- </configuration> -->
-			<!-- </execution> -->
-			<!-- </executions> -->
-			<!-- <dependencies> -->
-			<!-- <dependency> -->
-			<!-- <groupId>org.codehaus.izpack</groupId> -->
-			<!-- <artifactId>izpack-standalone-compiler</artifactId> -->
-			<!-- <version>4.3.1</version> -->
-			<!-- </dependency> -->
-			<!-- </dependencies> -->
-			<!-- </plugin> -->
+
+			<plugin>
+				<groupId>org.codehaus.izpack</groupId>
+				<artifactId>izpack-maven-plugin</artifactId>
+				<version>1.0-alpha-5</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>izpack</goal>
+						</goals>
+						<configuration>
+							<izpackBasedir>${staging.dir}/${client}</izpackBasedir>
+							<descriptor>${project.build.directory}/${client}.install.xml</descriptor>
+							<installerFile>${project.build.directory}/grisu-template-installer.jar</installerFile>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.izpack</groupId>
+						<artifactId>izpack-standalone-compiler</artifactId>
+						<version>4.3.1</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 
 
 
@@ -263,9 +270,9 @@
 	<properties>
 		<staging.dir>${project.build.directory}/izpack</staging.dir>
 		<client>grisu-template</client>
-		<windows.start.script>grisu-template.bat</windows.start.script>
 		<client.name>Grisu Template Client</client.name>
 		<client.url>http://grisu</client.url>
 		<linux.start.script>grisu-template</linux.start.script>
+		<windows.start.script>grisu-template.bat</windows.start.script>
 	</properties>
 </project>

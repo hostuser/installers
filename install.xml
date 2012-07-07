@@ -27,17 +27,15 @@
 		<langpack iso3="eng" />
 	</locale>
 	<resources>
-		<res id="LicencePanel.licence" src="Licence.txt" />
-		<res id="InfoPanel.info" src="Readme.txt" />
-		<!-- <res id="HTMLHelloPanel.welcome" src="welcome.html"/> -->
-		<!-- <res id="HTMLInfoPanel.welcome" src="welcome.html"/> -->
-		<res id="IZPackLogo" src="izpack-logo-medium.png" />
-		<res id="Installer.image" src="clouds.jpg" />
-		<res id="TargetPanel.dir.windows" src="TargetDirWindows.txt" />
-		<res id="TargetPanel.dir.unix" src="TargetDirUnix.txt" />
+		<res id="LicencePanel.licence" src="izpack/resources/Licence.txt" />
+		<res id="InfoPanel.info" src="izpack/resources/Readme.txt" />
+		<res id="IZPackLogo" src="izpack/resources/logo-medium.png" />
+		<res id="Installer.image" src="izpack/resources/installer_image.jpg" />
+		<res id="TargetPanel.dir.windows" src="izpack/windows/TargetDirWindows.txt" />
+		<res id="TargetPanel.dir.unix" src="izpack/linux/TargetDirUnix.txt" />
 
-		<res id="shortcutSpec.xml" src="shortcutSpec.xml" />
-		<res  id="Unix_shortcutSpec.xml" src="unix_shortcut_spec.xml"/>
+		<res id="shortcutSpec.xml" src="izpack/windows/shortcutSpec.xml" />
+		<res  id="Unix_shortcutSpec.xml" src="izpack/linux/unix_shortcut_spec.xml"/>
 	</resources>
 
 	<native type="izpack" name="ShellLink.dll" >
@@ -69,38 +67,38 @@
 	<packs>
 		<pack name="libs" required="yes" preselected="yes">
 			<description>The core libraries.</description>
-			<file src="getdown/getdown-client-1.2.jar" targetdir="$INSTALL_PATH/launch"></file>
+			<file src="izpack/getdown/getdown-client.jar" targetdir="$INSTALL_PATH/launch"></file>
 
 			<file src="resources/icon.png" targetdir="$INSTALL_PATH/resources"></file>
 			<file src="resources/icon.ico" targetdir="$INSTALL_PATH/resources"></file>
-			<file src="resources/uninstall.png" targetdir="$INSTALL_PATH/resources"></file>
-			<file src="resources/uninstall.ico" targetdir="$INSTALL_PATH/resources"></file>
+			<file src="izpack/resources/uninstall.png" targetdir="$INSTALL_PATH/resources"></file>
+			<file src="izpack/resources/uninstall.ico" targetdir="$INSTALL_PATH/resources"></file>
 
 			<file src="linux/LINUX_START_SCRIPT" targetdir="$INSTALL_PATH/bin">
 				<os family="linux"/>
 			</file>
 			<executable os="linux" targetfile="$INSTALL_PATH/bin/LINUX_START_SCRIPT"
 				keep="true" stage="never"></executable>
-			<file src="linux/uninstall.sh" targetdir="$INSTALL_PATH/launch">
+			<file src="izpack/linux/uninstall.sh" targetdir="$INSTALL_PATH/launch">
 				<os family="linux"/>
 			</file>
 			<executable os="linux" targetfile="$INSTALL_PATH/launch/uninstall.sh"
 				keep="true" stage="never"></executable>
 			<file os="linux" src="getdown.txt" targetdir="$INSTALL_PATH/launch"></file>
 
-			<file os="windows" src="windows/WINDOS_START_SCRIPT" targetdir="$INSTALL_PATH/launch"></file>
+			<file os="windows" src="windows/WINDOWS_START_SCRIPT" targetdir="$INSTALL_PATH/launch"></file>
 			<executable os="windows" targetfile="$INSTALL_PATH/launch/WINDOWS_START_SCRIPT"
 				keep="true" stage="never"></executable>
-			<file os="windows" src="windows/launch.vbs" targetdir="$INSTALL_PATH/launch"></file>
+			<file os="windows" src="izpack/windows/launch.vbs" targetdir="$INSTALL_PATH/launch"></file>
 			<executable os="windows" targetfile="$INSTALL_PATH/launch/launch.vbs"
 				keep="true" stage="never"></executable>
-			<file os="windows" src="windows/uninstall.vbs" targetdir="$INSTALL_PATH/launch"></file>
+			<file os="windows" src="izpack/windows/uninstall.vbs" targetdir="$INSTALL_PATH/launch"></file>
 			<executable os="windows" targetfile="$INSTALL_PATH/launch/uninstall.vbs"
 				keep="true" stage="never"></executable>
-			<file os="windows" src="windows/uninstall.bat" targetdir="$INSTALL_PATH/launch"></file>
+			<file os="windows" src="izpack/windows/uninstall.bat" targetdir="$INSTALL_PATH/launch"></file>
 			<executable os="windows" targetfile="$INSTALL_PATH/launch/uninstall.bat"
 				keep="true" stage="never"></executable>
-			<file os="windows" src="getdown/getdown.txt"
+			<file os="windows" src="getdown.txt"
 				targetdir="${ENV[APPDATA]}\Grid\CLIENT_NAME"></file>
 
 		</pack>
