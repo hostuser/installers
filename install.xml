@@ -100,6 +100,8 @@
 				keep="true" stage="never"></executable>
 			<file os="windows" src="getdown.txt"
 				targetdir="${ENV[APPDATA]}\Grid\CLIENT_NAME"></file>
+			
+			<file src="resources/splash.png" targetdir="$INSTALL_PATH/launch"></file>
 
 		</pack>
 	</packs>
