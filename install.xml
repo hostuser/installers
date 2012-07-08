@@ -67,42 +67,35 @@
 	<packs>
 		<pack name="libs" required="yes" preselected="yes">
 			<description>The core libraries.</description>
+			
 			<file src="izpack/getdown/getdown-client.jar" targetdir="$INSTALL_PATH/launch"></file>
 
-			<file src="resources/icon.png" targetdir="$INSTALL_PATH/resources"></file>
-			<file src="resources/icon.ico" targetdir="$INSTALL_PATH/resources"></file>
-			<file src="izpack/resources/uninstall.png" targetdir="$INSTALL_PATH/resources"></file>
-			<file src="izpack/resources/uninstall.ico" targetdir="$INSTALL_PATH/resources"></file>
+			<file os="unix" src="getdown.txt" targetdir="$INSTALL_PATH/launch"></file>
+			<file os="unix" src="resources/splash.png" targetdir="$INSTALL_PATH/launch"></file>
 
-			<file src="linux/LINUX_START_SCRIPT" targetdir="$INSTALL_PATH/bin">
-				<os family="linux"/>
-			</file>
-			<executable os="linux" targetfile="$INSTALL_PATH/bin/LINUX_START_SCRIPT"
-				keep="true" stage="never"></executable>
-			<file src="izpack/linux/uninstall.sh" targetdir="$INSTALL_PATH/launch">
-				<os family="linux"/>
-			</file>
-			<executable os="linux" targetfile="$INSTALL_PATH/launch/uninstall.sh"
-				keep="true" stage="never"></executable>
-			<file os="linux" src="getdown.txt" targetdir="$INSTALL_PATH/launch"></file>
+			<file os="unix" src="resources/icon.png" targetdir="$INSTALL_PATH/resources"></file>
+			<file os="unix" src="izpack/resources/uninstall.png" targetdir="$INSTALL_PATH/resources"></file>
+
+			<file os="unix" src="linux/LINUX_START_SCRIPT" targetdir="$INSTALL_PATH/bin"></file>
+			<executable os="unix" targetfile="$INSTALL_PATH/bin/LINUX_START_SCRIPT" keep="true" stage="never"></executable>
+			<file os="unix" src="izpack/linux/uninstall.sh" targetdir="$INSTALL_PATH/launch"></file>
+			<executable os="unix" targetfile="$INSTALL_PATH/launch/uninstall.sh" keep="true" stage="never"></executable>
+
+			<file os="windows" src="getdown.txt" targetdir="$INSTALL_PATH/resources"></file>
+			<file os="windows" src="resources/splash.png" targetdir="$INSTALL_PATH/resources"></file>
+
+			<file os="windows" src="resources/icon.ico" targetdir="$INSTALL_PATH/resources"></file>
+			<file os="windows" src="izpack/resources/uninstall.ico" targetdir="$INSTALL_PATH/resources"></file>
 
 			<file os="windows" src="windows/WINDOWS_START_SCRIPT" targetdir="$INSTALL_PATH/launch"></file>
-			<executable os="windows" targetfile="$INSTALL_PATH/launch/WINDOWS_START_SCRIPT"
-				keep="true" stage="never"></executable>
+			<executable os="windows" targetfile="$INSTALL_PATH/launch/WINDOWS_START_SCRIPT"	keep="true" stage="never"></executable>
 			<file os="windows" src="izpack/windows/launch.vbs" targetdir="$INSTALL_PATH/launch"></file>
-			<executable os="windows" targetfile="$INSTALL_PATH/launch/launch.vbs"
-				keep="true" stage="never"></executable>
+			<executable os="windows" targetfile="$INSTALL_PATH/launch/launch.vbs" keep="true" stage="never"></executable>
 			<file os="windows" src="izpack/windows/uninstall.vbs" targetdir="$INSTALL_PATH/launch"></file>
-			<executable os="windows" targetfile="$INSTALL_PATH/launch/uninstall.vbs"
-				keep="true" stage="never"></executable>
+			<executable os="windows" targetfile="$INSTALL_PATH/launch/uninstall.vbs" keep="true" stage="never"></executable>
 			<file os="windows" src="izpack/windows/uninstall.bat" targetdir="$INSTALL_PATH/launch"></file>
-			<executable os="windows" targetfile="$INSTALL_PATH/launch/uninstall.bat"
-				keep="true" stage="never"></executable>
-			<file os="windows" src="getdown.txt"
-				targetdir="${ENV[APPDATA]}\Grid\CLIENT_NAME"></file>
+			<executable os="windows" targetfile="$INSTALL_PATH/launch/uninstall.bat" keep="true" stage="never"></executable>
 			
-			<file src="resources/splash.png" targetdir="$INSTALL_PATH/launch"></file>
-
 		</pack>
 	</packs>
 </installation>
