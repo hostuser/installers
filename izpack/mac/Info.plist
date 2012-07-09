@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>MAC_START_SCRIPT</string>
 	<key>CFBundleIconFile</key>
-	<string>icon.hqx</string>
+	<string>icon.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>grisu.frontend.grisu-template</string>
 	<key>CFBundleInfoDictionaryVersion</key>

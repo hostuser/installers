@@ -107,7 +107,7 @@
 			</file>
 			<file os="mac" src="resources/splash.png" targetdir="$INSTALL_PATH/Contents/MacOS">
 			</file>
-			<file os="mac" src="resources/icon.hqx" targetdir="$INSTALL_PATH/Contents/Resources">
+			<file os="mac" src="resources/icon.icns" targetdir="$INSTALL_PATH/Contents/Resources">
 			</file>
 
 			<file os="mac" src="mac/MAC_START_SCRIPT" targetdir="$INSTALL_PATH/Contents/MacOS">
