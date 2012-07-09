@@ -33,6 +33,7 @@
 		<res id="Installer.image" src="izpack/resources/installer_image.jpg" />
 		<res id="TargetPanel.dir.windows" src="izpack/windows/TargetDirWindows.txt" />
 		<res id="TargetPanel.dir.unix" src="izpack/linux/TargetDirUnix.txt" />
+		<res id="TargetPanel.dir.mac" src="izpack/linux/TargetDirMac.txt" />
 
 		<res id="shortcutSpec.xml" src="izpack/windows/shortcutSpec.xml" />
 		<res  id="Unix_shortcutSpec.xml" src="izpack/linux/unix_shortcut_spec.xml"/>
