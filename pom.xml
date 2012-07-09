@@ -252,7 +252,7 @@
 						<configuration>
 							<izpackBasedir>${staging.dir}/${client}</izpackBasedir>
 							<descriptor>${project.build.directory}/${client}.install.xml</descriptor>
-							<installerFile>${project.build.directory}/grisu-template-installer.jar</installerFile>
+							<installerFile>${project.build.directory}/${client}-installer.jar</installerFile>
 						</configuration>
 					</execution>
 				</executions>
@@ -269,15 +269,35 @@
 
 		</plugins>
 	</build>
-
-
 	<properties>
-		<staging.dir>${project.build.directory}/izpack</staging.dir>
-		<client>grisu-template</client>
-		<client.name>Grisu Template Client</client.name>
-		<client.url>http://grisu</client.url>
-		<linux.start.script>grisu-template</linux.start.script>
-		<mac.start.script>grisu-template.sh</mac.start.script>
-		<windows.start.script>grisu-template.bat</windows.start.script>
+			<staging.dir>${project.build.directory}/izpack</staging.dir>
 	</properties>
+	
+	<profiles>
+		<profile>
+			<id>grisu-template</id>
+			<properties>
+				<client>grisu-template</client>
+				<client.name>Grisu Template Client</client.name>
+				<client.url>http://grisu</client.url>
+				<linux.start.script>grisu-template</linux.start.script>
+				<mac.start.script>grisu-template.sh</mac.start.script>
+				<windows.start.script>grisu-template.bat</windows.start.script>
+			</properties>
+		</profile>
+		<profile>
+			<id>grid-session</id>
+			<properties>
+				<client>grid-session</client>
+				<client.name>Grid-Session</client.name>
+				<client.url>https://github.com/grith/grid-session</client.url>
+				<linux.start.script>grid-tray</linux.start.script>
+				<mac.start.script>grid-tray.sh</mac.start.script>
+				<windows.start.script>grid-tray.bat</windows.start.script>
+			</properties>
+		</profile>		
+		
+		
+	</profiles>
+
 </project>

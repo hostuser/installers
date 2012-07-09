@@ -61,13 +61,13 @@
 		<panel classname="TargetPanel" id="install_dir" />
 		<panel classname="PacksPanel" id="sdk_pack_select" />
 		<panel classname="InstallPanel" id="install" />
-		<panel classname="ShortcutPanel" />
+		<panel classname="ShortcutPanel" id="shortcutpanel"/>
 		<panel classname="SimpleFinishPanel" id="finish" />
 	</panels>
 
 	<packs>
-		<pack name="libs" required="yes" preselected="yes">
-			<description>The core libraries.</description>
+		<pack name="CLIENT_NAME" required="yes" preselected="yes">
+			<description>The core application.</description>
 			
 			<file os="unix" src="izpack/getdown/getdown-client.jar" targetdir="$INSTALL_PATH/launch">
 			

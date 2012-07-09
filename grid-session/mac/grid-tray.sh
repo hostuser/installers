@@ -1,6 +1,6 @@
 #!/bin/sh
 
-APPDIR="/Library/Application Support/Grid/Grisu Template Client/"
+APPDIR="/Library/Application Support/Grid/Grid-Session/"
 DIR=$(cd "$(dirname "$0")"; pwd)
 
 if [ ! -d "$APPDIR" ]

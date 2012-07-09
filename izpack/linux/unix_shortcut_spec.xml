@@ -21,7 +21,7 @@
      terminal="false"
      KdeSubstUID="false"
      initialState="normal">
-     <createForPack name="libs"/>
+     <createForPack name="CLIENT_NAME"/>
    </shortcut>
 
   
@@ -43,7 +43,7 @@
      terminal="false"
      KdeSubstUID="false"
      initialState="normal">
-     <createForPack name="libs"/>
+     <createForPack name="CLIENT_NAME"/>
    </shortcut>
   
   

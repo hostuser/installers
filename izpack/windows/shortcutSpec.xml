@@ -17,7 +17,7 @@
     startMenu="no"
     startup="no">
 
-    <createForPack name="libs"/>
+    <createForPack name="CLIENT_NAME"/>
   </shortcut>
   
 <shortcut
@@ -34,7 +34,7 @@
      iconFile="$INSTALL_PATH\resources\uninstall.ico"
      iconIndex="0"
      description="CLIENT_NAME uninstaller">
-     <createForPack name="libs" />
+     <createForPack name="CLIENT_NAME" />
    </shortcut>  
   
   
