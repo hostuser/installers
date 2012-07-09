@@ -99,27 +99,27 @@
 <!-- 				<os>unix</os> -->
 <!-- 			</executable> -->
 
-			<file os="mac" src="getdown.txt" targetdir="$INSTALL_PATH/Contents/MacOS">
-				<os>unix</os>
+			<file src="getdown.txt" targetdir="$INSTALL_PATH/Contents/MacOS">
+				<os family="mac"></os>
 			</file>
-			<file os="mac" src="izpack/getdown/getdown-client.jar" targetdir="$INSTALL_PATH/MacOS">
-				<os>unix</os>
+			<file src="izpack/getdown/getdown-client.jar" targetdir="$INSTALL_PATH/MacOS">
+				<os family="mac"></os>
 			</file>
-			<file os="mac" src="izpack/mac/Info.plist" targetdir="$INSTALL_PATH/Contents">
-				<os>unix</os>
+			<file src="izpack/mac/Info.plist" targetdir="$INSTALL_PATH/Contents">
+				<os family="mac"></os>
 			</file>
-			<file os="mac" src="resources/splash.png" targetdir="$INSTALL_PATH/Contents/MacOS">
-				<os>unix</os>
+			<file src="resources/splash.png" targetdir="$INSTALL_PATH/Contents/MacOS">
+				<os family="mac"></os>
 			</file>
-			<file os="mac" src="resources/icon.icns" targetdir="$INSTALL_PATH/Contents/Resources">
-				<os>unix</os>
+			<file src="resources/icon.icns" targetdir="$INSTALL_PATH/Contents/Resources">
+				<os family="mac"></os>
 			</file>
 
-			<file os="mac" src="mac/MAC_START_SCRIPT" targetdir="$INSTALL_PATH/Contents/MacOS">
-				<os>unix</os>
+			<file src="mac/MAC_START_SCRIPT" targetdir="$INSTALL_PATH/Contents/MacOS">
+				<os family="mac"></os>
 			</file>
-			<executable os="mac" targetfile="$INSTALL_PATH/Contents/MacOS/MAC_START_SCRIPT" keep="true" stage="never">
-				<os>unix</os>
+			<executable targetfile="$INSTALL_PATH/Contents/MacOS/MAC_START_SCRIPT" keep="true" stage="never">
+				<os family="mac"></os>
 			</executable>
 
 
