@@ -81,13 +81,14 @@
 			<file os="unix" src="izpack/linux/uninstall.sh" targetdir="$INSTALL_PATH/launch"></file>
 			<executable os="unix" targetfile="$INSTALL_PATH/launch/uninstall.sh" keep="true" stage="never"></executable>
 
-			<file os="mac" src="getdown.txt" targetdir="$INSTALL_PATH/MacOS"></file>
+			<file os="mac" src="getdown.txt" targetdir="$INSTALL_PATH/Contents/MacOS"></file>
 			<file os="mac" src="izpack/getdown/getdown-client.jar" targetdir="$INSTALL_PATH/MacOS"></file>
-			<file os="mac" src="resources/splash.png" targetdir="$INSTALL_PATH/MacOS"></file>
-			<file os="mac" src="resources/icon.icns" targetdir="$INSTALL_PATH/Resources"></file>
+			<file os="mac" src="mac/Info.plist" targetdir="$INSTALL_PATH/Contents"></file>
+			<file os="mac" src="resources/splash.png" targetdir="$INSTALL_PATH/Contents/MacOS"></file>
+			<file os="mac" src="resources/icon.icns" targetdir="$INSTALL_PATH/Contents/Resources"></file>
 
-			<file os="mac" src="mac/MAC_START_SCRIPT" targetdir="$INSTALL_PATH/MacOS"></file>
-			<executable os="mac" targetfile="$INSTALL_PATH/MacOS/MAC_START_SCRIPT" keep="true" stage="never"></executable>
+			<file os="mac" src="mac/MAC_START_SCRIPT" targetdir="$INSTALL_PATH/Contents/MacOS"></file>
+			<executable os="mac" targetfile="$INSTALL_PATH/Contents/MacOS/MAC_START_SCRIPT" keep="true" stage="never"></executable>
 
 
 			<file os="windows" src="getdown.txt" targetdir="$INSTALL_PATH/resources"></file>
