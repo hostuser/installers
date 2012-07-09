@@ -1,1 +1,1 @@
-/Applications/CLIENT_ID.app
+/Applications/CLIENT_NAME.app
