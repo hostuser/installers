@@ -1,10 +1,11 @@
 #!/bin/sh
 
 APPDIR="/Library/Application Support/Grisu/Grisu Template Client/"
+DIR=$(cd "$(dirname "$0")"; pwd)
 
-if [ ! -d $APPDIR ]
+if [ ! -d "$APPDIR" ]
 then
-  mkdir -p $APPDIR
+  mkdir -p "$APPDIR"
 fi
 
 if [ ! -f "$APPDIR/getdown.txt" ] 
@@ -17,6 +18,5 @@ then
 	cp "$DIR/splash.png" "$APPDIR"
 fi
 
-DIR=$(cd "$(dirname "$0")"; pwd)
 export X509_USER_PROXY="$HOME/.grid/grid.proxy"
 java -jar "$DIR/getdown-client.jar" "$APPDIR"
