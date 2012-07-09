@@ -68,18 +68,36 @@
 		<pack name="libs" required="yes" preselected="yes">
 			<description>The core libraries.</description>
 			
-			<file os="unix" src="izpack/getdown/getdown-client.jar" targetdir="$INSTALL_PATH/launch"></file>
+			<file os="unix" src="izpack/getdown/getdown-client.jar" targetdir="$INSTALL_PATH/launch">
+			
+			</file>
 
-			<file os="unix" src="getdown.txt" targetdir="$INSTALL_PATH/launch"></file>
-			<file os="unix" src="resources/splash.png" targetdir="$INSTALL_PATH/launch"></file>
+			<file os="unix" src="getdown.txt" targetdir="$INSTALL_PATH/launch">
+				<os>unix</os>
+			</file>
+			<file os="unix" src="resources/splash.png" targetdir="$INSTALL_PATH/launch">
+				<os>unix</os>
+			</file>
 
-			<file os="unix" src="resources/icon.png" targetdir="$INSTALL_PATH/resources"></file>
-			<file os="unix" src="izpack/resources/uninstall.png" targetdir="$INSTALL_PATH/resources"></file>
+			<file os="unix" src="resources/icon.png" targetdir="$INSTALL_PATH/resources">
+				<os>unix</os>
+			</file>
+			<file os="unix" src="izpack/resources/uninstall.png" targetdir="$INSTALL_PATH/resources">
+				<os>unix</os>
+			</file>
 
-			<file os="unix" src="linux/LINUX_START_SCRIPT" targetdir="$INSTALL_PATH/bin"></file>
-			<executable os="unix" targetfile="$INSTALL_PATH/bin/LINUX_START_SCRIPT" keep="true" stage="never"></executable>
-			<file os="unix" src="izpack/linux/uninstall.sh" targetdir="$INSTALL_PATH/launch"></file>
-			<executable os="unix" targetfile="$INSTALL_PATH/launch/uninstall.sh" keep="true" stage="never"></executable>
+			<file os="unix" src="linux/LINUX_START_SCRIPT" targetdir="$INSTALL_PATH/bin">
+				<os>unix</os>
+			</file>
+			<executable os="unix" targetfile="$INSTALL_PATH/bin/LINUX_START_SCRIPT" keep="true" stage="never">
+				<os>unix</os>
+			</executable>
+			<file os="unix" src="izpack/linux/uninstall.sh" targetdir="$INSTALL_PATH/launch">
+				<os>unix</os>
+			</file>
+			<executable os="unix" targetfile="$INSTALL_PATH/launch/uninstall.sh" keep="true" stage="never">
+				<os>unix</os>
+			</executable>
 
 			<file os="mac" src="getdown.txt" targetdir="$INSTALL_PATH/Contents/MacOS"></file>
 			<file os="mac" src="izpack/getdown/getdown-client.jar" targetdir="$INSTALL_PATH/MacOS"></file>
