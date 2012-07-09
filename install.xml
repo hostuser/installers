@@ -83,7 +83,7 @@
 
 			<file os="mac" src="getdown.txt" targetdir="$INSTALL_PATH/Contents/MacOS"></file>
 			<file os="mac" src="izpack/getdown/getdown-client.jar" targetdir="$INSTALL_PATH/MacOS"></file>
-			<file os="mac" src="mac/Info.plist" targetdir="$INSTALL_PATH/Contents"></file>
+			<file os="mac" src="izpack/mac/Info.plist" targetdir="$INSTALL_PATH/Contents"></file>
 			<file os="mac" src="resources/splash.png" targetdir="$INSTALL_PATH/Contents/MacOS"></file>
 			<file os="mac" src="resources/icon.icns" targetdir="$INSTALL_PATH/Contents/Resources"></file>
 
