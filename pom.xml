@@ -224,6 +224,10 @@
 							<value>${linux.start.script}</value>
 						</replacement>
 						<replacement>
+							<token>MAC_START_SCRIPT</token>
+							<value>${mac.start.script}</value>
+						</replacement>
+						<replacement>
 							<token>CLIENT_URL</token>
 							<value>${client.url}</value>
 						</replacement>
@@ -273,6 +277,7 @@
 		<client.name>Grisu Template Client</client.name>
 		<client.url>http://grisu</client.url>
 		<linux.start.script>grisu-template</linux.start.script>
+		<mac.start.script>grisu-template</mac.start.script>
 		<windows.start.script>grisu-template.bat</windows.start.script>
 	</properties>
 </project>
