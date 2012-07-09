@@ -1,1 +1,1 @@
-$USER_HOME/CLIENT_ID.app
+/Applications/CLIENT_ID.app

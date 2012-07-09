@@ -36,7 +36,7 @@
 		<res id="TargetPanel.dir.mac" src="izpack/mac/TargetDirMac.txt" />
 
 		<res id="shortcutSpec.xml" src="izpack/windows/shortcutSpec.xml" />
-		<res  id="Unix_shortcutSpec.xml" src="izpack/linux/unix_shortcut_spec.xml"/>
+		<res id="Unix_shortcutSpec.xml" src="izpack/linux/unix_shortcut_spec.xml"/>
 	</resources>
 
 	<native type="izpack" name="ShellLink.dll" >
