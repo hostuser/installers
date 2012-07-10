@@ -1,9 +1,12 @@
-if NOT EXIST "%APPDATA%\Grid\Grisu Template Client\getdown.txt" (
-	MD "%APPDATA%\Grid\Grisu Template Client\"
-	COPY ..\resources\getdown.txt "%APPDATA%\Grid\Grisu Template Client\getdown.txt"
+set dir="%APPDATA%\Grid\Grisu Template Client"
+
+
+if NOT EXIST "%dir%\getdown.txt" (
+	MD "%dir%"
+	COPY ..\resources\getdown.txt "%dir%\getdown.txt"
 )
-if NOT EXIST "%APPDATA%\Grid\Grisu Template Client\splash.png" (
-	MD "%APPDATA%\Grid\Grisu Template Client\"
-	COPY ..\resources\splash.png "%APPDATA%\Grid\Grisu Template Client\splash.png"
+if NOT EXIST "%dir%\splash.png" (
+	MD "%dir%"
+	COPY ..\resources\splash.png "%dir%\splash.png"
 )
-java -jar "getdown-client.jar" "%APPDATA%\Grid\Grisu Template Client"
+java -jar "getdown-client.jar" "%dir%"
