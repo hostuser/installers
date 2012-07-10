@@ -27,8 +27,8 @@
 		<langpack iso3="eng" />
 	</locale>
 	<resources>
-		<res id="LicencePanel.licence" src="izpack/resources/Licence.txt" />
-		<res id="InfoPanel.info" src="izpack/resources/Readme.txt" />
+<!-- 		<res id="LicencePanel.licence" src="izpack/resources/Licence.txt" /> -->
+		<res id="HTMLHelloPanel.info" src="izpack/resources/Readme.html" />
 		<res id="IZPackLogo" src="izpack/resources/logo-medium.png" />
 		<res id="Installer.image" src="izpack/resources/installer_image.jpg" />
 		<res id="TargetPanel.dir.windows" src="izpack/windows/TargetDirWindows.txt" />
@@ -57,7 +57,7 @@
 
 	<panels>
 		<!-- <panel classname="CheckedHelloPanel" id="welcome"/> -->
-		<panel classname="CheckedHelloPanel" />
+		<panel classname="HTMLHelloPanel" />
 		<panel classname="TargetPanel" id="install_dir" />
 		<panel classname="PacksPanel" id="sdk_pack_select" />
 		<panel classname="InstallPanel" id="install" />

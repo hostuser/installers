@@ -231,6 +231,10 @@
 							<token>CLIENT_URL</token>
 							<value>${client.url}</value>
 						</replacement>
+						<replacement>
+							<token>USE_TERMINAL</token>
+							<value>${use.terminal}</value>
+						</replacement>
 					</replacements>
 				</configuration>
 
@@ -283,6 +287,7 @@
 				<linux.start.script>grisu-template</linux.start.script>
 				<mac.start.script>grisu-template.sh</mac.start.script>
 				<windows.start.script>grisu-template.bat</windows.start.script>
+				<use.terminal>false</use.terminal>
 			</properties>
 		</profile>
 		<profile>
@@ -294,9 +299,22 @@
 				<linux.start.script>grid-tray</linux.start.script>
 				<mac.start.script>grid-tray.sh</mac.start.script>
 				<windows.start.script>grid-tray.bat</windows.start.script>
+				<use.terminal>false</use.terminal>
 			</properties>
 		</profile>		
-		
+		<profile>
+			<id>gricli</id>
+			<properties>
+				<client>gricli</client>
+				<client.name>Gricli</client.name>
+				<client.url>https://github.com/grisu/gricli</client.url>
+				<linux.start.script>griclish</linux.start.script>
+				<mac.start.script>griclish.sh</mac.start.script>
+				<windows.start.script>griclish.bat</windows.start.script>
+				<use.terminal>true</use.terminal>
+			</properties>
+		</profile>		
+				
 		
 	</profiles>
 

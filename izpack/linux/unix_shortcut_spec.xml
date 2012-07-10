@@ -18,7 +18,7 @@
      iconIndex="0"
      type="Application"
      encoding="UTF-8"
-     terminal="false"
+     terminal="USE_TERMINAL"
      KdeSubstUID="false"
      initialState="normal">
      <createForPack name="CLIENT_NAME"/>

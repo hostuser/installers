@@ -1,0 +1,22 @@
+# The URL from which the client is downloaded
+appbase = http://code.ceres.auckland.ac.nz/snapshot-downloads/gricli
+#appbase = http://localhost:8000/
+
+# version = VERSION_TOKEN
+
+allow_offline = true
+
+# UI Configuration
+ui.name = Gricli
+
+# Application jar files
+code = gricli-binary.jar
+
+# The main entry point for the application
+class = grisu.gricli.Gricli
+
+#jvmarg = -DX509_USER_PROXY=~/.grid/grid.proxy
+#jvmarg = -Xmx256M
+#jvmarg = -Djava.library.path=%APPDIR%/native
+#jvmarg = -Dappdir=%APPDIR%
+#jvmarg = -Dversion=%VERSION%

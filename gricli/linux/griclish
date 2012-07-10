@@ -1,0 +1,13 @@
+#! /bin/bash
+unset DISPLAY
+export JAVA_OPTS="-Djava.awt.headless=true -Xms64m -Xmx64m"
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+
+export X509_USER_PROXY="$HOME/.grid/grid.proxy"
+
+echo "Checking for updates. This might take a while..."
+java -Dsilent=true -jar "$DIR/../launch/getdown-client.jar" "$DIR/../launch"
+
+java ${JAVA_OPTS} -cp "$DIR/../launch/gricli-binary.jar" grisu.gricli.Gricli $@
