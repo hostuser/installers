@@ -1,4 +1,4 @@
-set dir="%APPDATA%\Grid\Grisu Template Client"
+set dir="%APPDATA%\Grid\GrisuTemplateClient"
 
 
 if NOT EXIST "%dir%\getdown.txt" (
